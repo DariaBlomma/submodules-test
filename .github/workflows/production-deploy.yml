@@ -14,4 +14,5 @@ jobs:
       - run: npm install -g bats
       - run: bats -v
       - run: git submodule update --init --recursive
-      - run: echo "a new test line" > ../submodule-two/index.html
+      - run: cd ../submodule-two
+      - run: echo "a new test line" > index.html
