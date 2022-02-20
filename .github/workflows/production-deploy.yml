@@ -1,8 +1,6 @@
 name: production-deploy
 on:
   push:
-    paths:
-      - 'submodule-one/**'
     branches:
       - master
 jobs:
@@ -15,7 +13,5 @@ jobs:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
-      - run: cd submodule-one
-      - run: npm install
-      - run: npm run build
+      - run: git submodule update --init --recursive
       - run: echo "a new test line" > ../submodule-two/index.html
