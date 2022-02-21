@@ -11,4 +11,12 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - name: Update submodules
       - run: git submodule update --init --recursive
+      - name: Commit
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions - update submodules"
+          git add --all
+          git commit -m "Update submodules" || echo "No changes to commit"
+          git push
