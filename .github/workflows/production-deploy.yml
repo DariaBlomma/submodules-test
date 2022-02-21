@@ -13,8 +13,9 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Update submodules
+      - name: Init submodules
         run: git submodule update --init --recursive
+      - name: Update submodules
         run: git submodule update --remote
       - name: Commit
         run: |
