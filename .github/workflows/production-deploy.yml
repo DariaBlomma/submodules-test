@@ -24,3 +24,7 @@ jobs:
           git add --all
           git commit -m "Update submodules" || echo "No changes to commit"
           git push origin master
+      - name: Pull changes
+        run: |
+          git pull
+          git submodule update --init --recursive
