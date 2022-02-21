@@ -14,4 +14,6 @@ jobs:
       - run: npm install -g bats
       - run: bats -v
       - run: git submodule update --init --recursive
-      - run: echo "$PATH"
+      - run: echo '$github.action_path'
+      - run: echo '$github.repositoryUrl'
+      - run: echo '$github.repositoryUrl' + '/submodule-one'
